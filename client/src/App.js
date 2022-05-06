@@ -6,6 +6,8 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 import "react-datepicker/dist/react-datepicker.css";
 import { config } from '@fortawesome/fontawesome-svg-core'
 import { useState } from "react";
+import { MissesStatement } from "./components/MissesStatement";
+import { statementData } from "./fake-data";
 
 config.autoAddCss = false
 
@@ -17,8 +19,10 @@ function App() {
         <div className="App">
             <Header />
             {false && <JournalPage />}
-            <PeriodButtonsMonth onPeriodSelected={setPeriod}/>
-            <div>{period.getFullYear()}, {period.getMonth()}</div>
+            {false && <><PeriodButtonsMonth onPeriodSelected={setPeriod}/>
+             <div>{period.getFullYear()}, {period.getMonth()}</div></>}
+            <MissesStatement data={statementData}/>
+
         </div>
     );
 }
