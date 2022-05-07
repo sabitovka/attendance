@@ -70,3 +70,25 @@ export const statementData = {
     },
   ]
 };
+
+export const absence20students = [
+  { 
+    _id: "1", name: "Крупин Сергей Валентинович", 
+    group: {_id: 1, name: "ИСзск-19"}, 
+    percent: 73.4 
+  },
+  { 
+    _id: "2", name: "Быков Марк Васильевич", 
+    group: {_id: 2, name: "ПКС-15"}, 
+    percent: 66.3 
+  },
+  { 
+    _id: "3", name: "Северин Анатолий Иванович",
+    group: {_id: 1, name: "ИСзск-19"}, 
+    percent: 0.0 
+  },
+  { 
+    _id: "4", name: "Тихомиров Станислав Владимирович", 
+    group: {_id: 3, name: "ЭМО-1/4"}, 
+    percent: 11.6  },
+];

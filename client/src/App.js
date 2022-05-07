@@ -9,6 +9,7 @@ import { useState } from "react";
 import { MissesStatement } from "./components/MissesStatement";
 import { statementData } from "./fake-data";
 import { StatementPage } from "./pages/StatementPage";
+import { Absence20Page } from "./pages/Absence20Page";
 
 config.autoAddCss = false
 
@@ -22,8 +23,8 @@ function App() {
             {false && <JournalPage />}
             {false && <><PeriodButtonsMonth onPeriodSelected={setPeriod}/>
              <div>{period.getFullYear()}, {period.getMonth()}</div></>}
-            <StatementPage statementData={statementData} />
-
+            {false && <StatementPage statementData={statementData} />}
+            <Absence20Page />
         </div>
     );
 }
