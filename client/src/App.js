@@ -8,6 +8,7 @@ import { config } from '@fortawesome/fontawesome-svg-core'
 import { useState } from "react";
 import { MissesStatement } from "./components/MissesStatement";
 import { statementData } from "./fake-data";
+import { StatementPage } from "./pages/StatementPage";
 
 config.autoAddCss = false
 
@@ -21,7 +22,7 @@ function App() {
             {false && <JournalPage />}
             {false && <><PeriodButtonsMonth onPeriodSelected={setPeriod}/>
              <div>{period.getFullYear()}, {period.getMonth()}</div></>}
-            <MissesStatement data={statementData}/>
+            <StatementPage statementData={statementData} />
 
         </div>
     );

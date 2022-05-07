@@ -14,6 +14,25 @@ export const attendanceData = {
   ],
 };
 
+export const groups = [
+  {
+    id: 1,
+    name: "ИСзск-19",
+  },
+  {
+    id: 2,
+    name: "ПКС-15",
+  },
+  {
+    id: 3,
+    name: "Б-12",
+  },
+  {
+    id: 4,
+    name: "ЭМО-16/1",
+  },
+];
+
 export const statementData = {
   groupName: "ИСзск-19",
   students: [

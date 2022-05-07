@@ -17,7 +17,7 @@ export const MissesStatement = ({ data }) => {
               <Accordion.Header>
                 <div className="d-flex justify-content-between w-100 align-items-center pe-4">
                   <span className="fw-bolder">{index+1}. {student.name}</span>
-                  <div className="d-flex align-items-center border border-primary px-3 rounded-1">
+                  <div className={`d-flex align-items-center border border-primary px-3 rounded-1 ${!(validReasonsCount+invalidReasonsCount) && 'd-none'}`}>
                     <div>Ув.: {validReasonsCount}<br/>Неув.: {invalidReasonsCount}</div>
                     <div className="ms-3">Всего: {validReasonsCount+invalidReasonsCount}</div>
                   </div>
