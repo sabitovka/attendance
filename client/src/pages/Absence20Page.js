@@ -6,7 +6,7 @@ import { PeriodButtonsMonth } from "../components/PeriodButtonsWeek";
 
 import { absence20students } from "../fake-data"
 
-export const Absence20Page = () => {
+const Absence20Page = () => {
 
   return (
     <main className="main">
@@ -27,5 +27,6 @@ export const Absence20Page = () => {
       </div>
     </main>
   );
-
 }
+
+export default Absence20Page;

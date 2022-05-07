@@ -4,7 +4,7 @@ import { AttendanceTable } from "../components/AttendanceTable"
 import { faCalendar } from "@fortawesome/free-solid-svg-icons"
 import { attendanceData } from "../fake-data"
 
-export const JournalPage = () => {
+const JournalPage = () => {
   return (
     <main className="main">
         <div className="container">
@@ -20,3 +20,5 @@ export const JournalPage = () => {
     </main>
   )
 }
+
+export default JournalPage;

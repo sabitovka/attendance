@@ -6,7 +6,7 @@ import { MissesStatement } from "../components/MissesStatement";
 import { PeriodButtonsMonth } from "../components/PeriodButtonsMonth";
 import { groups as groupsList, statementData } from "../fake-data";
 
-export const StatementPage = () => {
+const StatementPage = () => {
   const [showModal, setShowModal] = useState(false);
   const [groups, setGroups] = useState();
   const [currentGroup,  setCurrentGroup] = useState();
@@ -75,3 +75,5 @@ export const StatementPage = () => {
   );
 
 }
+
+export default StatementPage;
