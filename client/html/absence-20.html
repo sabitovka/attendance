@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+</head>
+<body>
+    
+    <main class="main">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <h4 class="mt-3 mb-4">Студенты с пропусками больше 20%</h4>
+                <div>
+                    <button class="btn btn-primary">
+                        Скачать
+                        <i class="fa-solid fa-file-arrow-down ms-2"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                <label class="btn btn-outline-primary" for="btnradio1">Все</label>
+              
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btnradio2">Прошлая неделя</label>
+              
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btnradio3">С начала семестра</label>
+              </div>
+
+              <table class="mt-3 table table-hover table-striped">
+                <thead> 
+                  <tr>
+                    <th scope="col">ФИО студента</th>
+                    <th scope="col">Группа</th>
+                    <th scope="col">Посещено занятий, %</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Иванов Иван Старостович</th>
+                    <td>ПКС-17</td>
+                    <td>20</td> 
+                  </tr>
+                  <tr>
+                    <th scope="row">Якобс Монарх Аристархович</th>
+                    <td>ИСзск-19</td>
+                    <td>10</td>
+                  </tr>
+                  <tr>
+                    <th scope="row ">Покровин Георгий Васильевич</th>
+                    <td>ЭМО-14/1</td>
+                    <td>0</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+    <script src="https://kit.fontawesome.com/d3d6fee3bb.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

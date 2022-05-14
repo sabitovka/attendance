@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Журнал посещаемости ГПОУ "ЕПТ"</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="./img/logo.svg" alt="log" srcset="">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a href="#" class="nav-link">Студент</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link active dropdown-toggle" id="navbarDropdown-student"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Староста
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown-student">
+                                <li><a class="dropdown-item" href="#">Заполнить журнал посещамости</a></li>
+                                <li><a class="dropdown-item" href="#">Просмотреть посещаемость</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Преподаватель</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Зав. отделением
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Помощь</a>
+                        </li>
+                    </ul>
+                    <div class="user-info dropdown" role="button">
+                        <div class="d-flex text-light align-items-center" id="dropdownUserInfo" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="username me-2 fs-6">Сабитов Карим</div>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </div>
+
+                        <ul class="dropdown-menu" aria-labelledby="dropdownUserInfo">
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                    Выйти
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="row mt-5 mb-3">
+                <h4 class="col-9">Журнал посещаемости группы ИСзск-19</h4>
+                <div class="col-3 text-end lh-1 fw-bolder d-flex justify-content-center align-items-center">
+                    <span class="current-date">Понедельник, 02 мая 2022, четная неделя</span>
+                    <i class="fa-regular fa-calendar ms-2"></i>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col table-responsive">
+                    <table class="table table-bordered table-attendance">
+                        <thead>
+                          <tr>
+                            <th class="align-middle w-25" scope="col">Список студентов</th>
+                            <th class="text-wrap text-truncate align-top">
+                                <div class="d-flex flex-column text-center">
+                                    <span class="text-muted">08:00 - 09:20</span>
+                                    <span class="lh-1 mb-2">Системное программирование</span>
+                                    <span class="lh-1">Кутарницкий Артур Владимирович</span>
+                                </div> 
+                            </th>
+                            <th class="text-wrap text-truncate align-top">
+                                <div class="d-flex flex-column text-center ">
+                                    <span class="text-muted">08:00 - 09:20</span>
+                                    <span class="lh-1 mb-2">Инженерия ПО</span>
+                                    <span class="lh-1">Северьянов Артур Владимирович</span>
+                                </div> 
+                            </th>
+                            <th class="text-wrap text-truncate">
+                                <div class="d-flex flex-column text-center ">
+                                    <span class="text-muted">08:00 - 09:20</span>
+                                    <span class="lh-1 mb-2">Системное программирование</span>
+                                    <span class="lh-1">Кутарницкий Артур Владимирович</span>
+                                </div> 
+                            </th>
+                            <th class="text-wrap text-truncate">
+                                <div class="d-flex flex-column text-center ">
+                                    <span class="text-muted">08:00 - 09:20</span>
+                                    <span class="lh-1 mb-2">Системное программирование</span>
+                                    <span class="lh-1">Кутарницкий Артур Владимирович</span>
+                                </div> 
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Иванов Степан Викторович</td>
+                            <td><div class="d-flex justify-content-center align-items-center"><input class="px-auto" type="checkbox" name="" id=""></div></td>
+                            <td><div class="d-flex justify-content-center align-items-center"><input type="checkbox" name="" id=""></div></td>
+                            <td><div class="d-flex justify-content-center align-items-center"><input type="checkbox" name="" id=""></div></td>
+                            <td><div class="d-flex justify-content-center align-items-center"><input type="checkbox" name="" id=""></div></td>
+                          </tr>
+                          <tr>
+                            <td>Васюков Антон Геннадиевич</td>
+                            <td><div class="d-flex justify-content-center align-items-center"><input type="checkbox" name="" id=""></div></td>
+                            <td><div class="d-flex justify-content-center align-items-center"><input type="checkbox" name="" id=""></div></td>
+                            <td><div class="d-flex justify-content-center align-items-center"><input type="checkbox" name="" id=""></div></td>
+                            <td><div class="d-flex justify-content-center align-items-center"><input type="checkbox" name="" id=""></div></td>
+                          </tr>
+                          <tr>
+                            <td>Васильков Виктор Григорьевич</td>
+                            <td><div class="d-flex justify-content-center align-items-center"><input type="checkbox" name="" id=""></div></td>
+                            <td><div class="d-flex justify-content-center align-items-center"><input type="checkbox" name="" id=""></div></td>
+                            <td><div class="d-flex justify-content-center align-items-center"><input type="checkbox" name="" id=""></div></td>
+                            <td><div class="d-flex justify-content-center align-items-center"><input type="checkbox" name="" id=""></div></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+</script>
+<script src="https://kit.fontawesome.com/d3d6fee3bb.js" crossorigin="anonymous"></script>
+
+</html>

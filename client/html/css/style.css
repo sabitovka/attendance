@@ -1,0 +1,14 @@
+.header {
+    background: #2192E3;
+}
+
+.current-date {
+    cursor: pointer;
+    user-select: none;
+    transition: color .3s;
+}
+
+.current-date:hover {
+    color: #555;
+    transition: color .3s;
+}
