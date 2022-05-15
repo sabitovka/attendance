@@ -24,8 +24,14 @@ public class Mark {
     private Date markDate;
     private boolean absent;
 
+
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "task_id")
     private Task task;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "student_id")
+    private Student student;
 
 }

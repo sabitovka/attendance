@@ -16,7 +16,9 @@ public class Bell {
     @Id
     @Column(name = "id", nullable = false)
     private Integer id;
+    @Temporal(TemporalType.TIME)
     private Date startTime;
+    @Temporal(TemporalType.TIME)
     private Date endTime;
 
     @OneToMany(mappedBy = "bell", orphanRemoval = true, fetch = FetchType.LAZY)
