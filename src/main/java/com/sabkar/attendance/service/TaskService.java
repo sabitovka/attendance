@@ -1,4 +1,4 @@
-package com.sabkar.attendance.services;
+package com.sabkar.attendance.service;
 
 import com.sabkar.attendance.entity.domain.Task;
 import com.sabkar.attendance.entity.transfer.TaskDto;

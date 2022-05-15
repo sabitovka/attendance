@@ -1,11 +1,8 @@
-package com.sabkar.attendance.controllers;
+package com.sabkar.attendance.controller;
 
-import com.sabkar.attendance.entity.domain.Task;
 import com.sabkar.attendance.entity.transfer.TaskDto;
-import com.sabkar.attendance.services.TaskService;
-import com.sun.istack.NotNull;
+import com.sabkar.attendance.service.TaskService;
 import lombok.AllArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

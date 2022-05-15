@@ -1,4 +1,4 @@
-package com.sabkar.attendance.services;
+package com.sabkar.attendance.service;
 
 import com.sabkar.attendance.entity.domain.Student;
 import com.sabkar.attendance.entity.transfer.StudentDto;
