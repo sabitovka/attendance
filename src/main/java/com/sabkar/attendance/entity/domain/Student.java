@@ -1,11 +1,11 @@
 package com.sabkar.attendance.entity.domain;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "students")
@@ -21,8 +21,5 @@ public class Student extends Person {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "group_id")
     private Group group;
-
-    @OneToMany(mappedBy = "student")
-    private List<Mark> marks = new ArrayList<>();
 
 }
