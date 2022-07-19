@@ -6,9 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,8 +21,6 @@ public class Mark {
     private Integer id;
     private Date markDate;
     private boolean absent;
-
-
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "task_id")

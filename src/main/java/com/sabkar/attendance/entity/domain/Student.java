@@ -12,9 +12,13 @@ import java.util.Date;
 @Getter
 @Setter
 @RequiredArgsConstructor
-public class Student extends Person {
+public class Student {
+    @Id
+    private Integer id;
+
     @Temporal(TemporalType.DATE)
     private Date transferDate;
+
     @Temporal(TemporalType.DATE)
     private Date deductionDate;
 
@@ -22,4 +26,7 @@ public class Student extends Person {
     @JoinColumn(name = "group_id")
     private Group group;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "person_id")
+    private Person person;
 }

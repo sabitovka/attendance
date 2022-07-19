@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "groups_")
+@Table(name = "`groups`")
 @Getter
 @Setter
 public class Group extends SimpleEntity {
