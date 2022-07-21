@@ -19,12 +19,11 @@ const writeObjToJsonFile = (filename, jsonObject) => {
 };
 
 const generateObjects = () => {
-  writeObjToJsonFile(teachers.NAME, teachers.generate());
-  writeObjToJsonFile(groups.NAME, groups.generateGroups());
-  writeObjToJsonFile(students.NAME, students.generate());
-  writeObjToJsonFile(lessons.NAME, lessons.generate());
-  writeObjToJsonFile(lessonWeeks.NAME, lessonWeeks.generate());
-  writeObjToJsonFile(disciplines.NAME, disciplines.generate());
+  [
+    teachers, groups, students, lessons, lessonWeeks, disciplines
+  ].forEach((obj) => {
+    writeObjToJsonFile(obj.NAME, obj.generate());
+  });
 }
 
 const compileObjects = () => {
