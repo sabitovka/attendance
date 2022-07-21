@@ -4,6 +4,9 @@ const { faker } = require('@faker-js/faker');
 const groups = require('./fake-entites/groups.js');
 const teachers = require('./fake-entites/teachers.js');
 const students = require('./fake-entites/students.js');
+const lessons = require('./fake-entites/lessons.js');
+const disciplines = require('./fake-entites/disciplines.js');
+const lessonWeeks = require('./fake-entites/lessonWeeks.js');
 
 faker.locale = 'ru';
 
@@ -19,6 +22,9 @@ const generateObjects = () => {
   writeObjToJsonFile(teachers.NAME, teachers.generate());
   writeObjToJsonFile(groups.NAME, groups.generateGroups());
   writeObjToJsonFile(students.NAME, students.generate());
+  writeObjToJsonFile(lessons.NAME, lessons.generate());
+  writeObjToJsonFile(lessonWeeks.NAME, lessonWeeks.generate());
+  writeObjToJsonFile(disciplines.NAME, disciplines.generate());
 }
 
 const compileObjects = () => {
