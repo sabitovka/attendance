@@ -1,2 +1,4 @@
 *.jpg
 node_modules
+db.json
+obj
