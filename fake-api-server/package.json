@@ -4,6 +4,8 @@
   "description": "Server with fake api data",
   "main": "index.js",
   "scripts": {
+    "build": "node index.js --compile --generate",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sabitov Karim",

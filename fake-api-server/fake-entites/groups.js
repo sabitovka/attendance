@@ -1,4 +1,4 @@
-export const NAME = 'groups';
+const NAME = 'groups';
 const COUNT = 20;
 const START_YEAR_SUFFIX = 15;
 const GROUP_NAMES = [
@@ -31,6 +31,10 @@ const createRandomGroup = (id) => {
   return groupObject;
 };
 
-export const generateGroups = () => {
+const generate = () => {
   return Array.from({ length: COUNT }).map((_, index) => createRandomGroup(index + 1));
+}
+
+module.exports = {
+  NAME, generate
 }

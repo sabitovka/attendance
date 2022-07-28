@@ -7,11 +7,16 @@ const { compileObjects, generateObjects } = require('./compile.js');
 const args = process.argv.slice(2);
 
 if (args.includes('--generate')) {
-  generateObjects();
+  const isSkip = args.includes('--skip');
+  generateObjects(!isSkip);
 }
 
 if (args.includes('--compile')) {
   compileObjects();
+}
+
+if (args.includes('--no-start')) {
+  return;
 }
 
 server.use(middlewares)

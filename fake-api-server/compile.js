@@ -7,6 +7,8 @@ const students = require('./fake-entites/students.js');
 const lessons = require('./fake-entites/lessons.js');
 const disciplines = require('./fake-entites/disciplines.js');
 const lessonWeeks = require('./fake-entites/lessonWeeks.js');
+const days = require('./fake-entites/days.js');
+const bells = require('./fake-entites/bells.js');
 
 faker.locale = 'ru';
 
@@ -18,24 +20,24 @@ const writeObjToJsonFile = (filename, jsonObject) => {
   fs.writeFileSync(`obj/${filename}.json`, jsonString, 'utf-8');
 };
 
-const generateObjects = () => {
+const generateObjects = (overwrite = true) => {
   [
-    teachers, groups, students, lessons, lessonWeeks, disciplines
+    teachers, groups, students, disciplines, lessonWeeks, days, bells, lessons
   ].forEach((obj) => {
-    writeObjToJsonFile(obj.NAME, obj.generate());
+    if (!fs.existsSync(`obj/${obj.NAME}.json`) || overwrite) {
+      writeObjToJsonFile(obj.NAME, obj.generate());
+    }
   });
 }
 
 const compileObjects = () => {
   const filesToRead = [
-    teachers.NAME,
-    students.NAME,
-    groups.NAME,
+    teachers, groups, students, disciplines, lessonWeeks, days, bells, lessons
   ];
 
   const dbJson = {};
-  filesToRead.forEach((filename) => {
-    const data = fs.readFileSync(`obj/${filename}.json`, 'utf-8');
+  filesToRead.forEach((obj) => {
+    const data = fs.readFileSync(`obj/${obj.NAME}.json`, 'utf-8');
     Object.assign(dbJson, JSON.parse(data));
   });
   const dbJsonString = JSON.stringify(dbJson);

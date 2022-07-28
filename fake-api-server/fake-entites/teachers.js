@@ -2,7 +2,7 @@ const { faker } = require('@faker-js/faker');
 
 faker.locale = 'ru';
 
-export const NAME = 'teachers';
+const NAME = 'teachers';
 const count = 15;
 
 const createRandomTeacher = (id) => ({
@@ -12,4 +12,8 @@ const createRandomTeacher = (id) => ({
   phone: faker.phone.number(),
 });
 
-export const generate = Array.from({ length: count }).map((_, index) => createRandomTeacher(index + 1));
+const generate = () => Array.from({ length: count }).map((_, index) => createRandomTeacher(index + 1));
+
+module.exports = {
+  NAME, generate
+}

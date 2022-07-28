@@ -1,14 +1,18 @@
-export const NAME = 'lessonWeeks';
+const NAME = 'lessonWeeks';
 
-export const generate = () => {
+const generate = () => {
   return [
     {
-      week: 1,
+      id: 1,
       ability: 'Верхняя неделя'
     },
     {
-      week: 2,
+      id: 2,
       ability: 'Верхняя неделя'
     }
   ]
+}
+
+module.exports = {
+  NAME, generate
 }

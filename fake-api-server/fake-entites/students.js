@@ -1,8 +1,9 @@
 const { faker } = require('@faker-js/faker');
+const { randomNumber } = require('../utils.js')
 
 faker.locale = 'ru';
 
-export const NAME = 'students';
+const NAME = 'students';
 const count = 120;
 
 const createRandomStudent = (id) => ({
@@ -14,4 +15,8 @@ const createRandomStudent = (id) => ({
   groupId: randomNumber(1, 20),
 });
 
-export const generate = () => Array.from({ length: count }).map((_, index) => createRandomStudent(index + 1));
+const generate = () => Array.from({ length: count }).map((_, index) => createRandomStudent(index + 1));
+
+module.exports = {
+  NAME, generate
+}
