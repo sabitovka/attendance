@@ -1,30 +1,32 @@
 const fs = require('fs');
 const { faker } = require('@faker-js/faker');
 
-const groups = require('./fake-entites/groups.js');
-const teachers = require('./fake-entites/teachers.js');
-const students = require('./fake-entites/students.js');
-const lessons = require('./fake-entites/lessons.js');
-const disciplines = require('./fake-entites/disciplines.js');
-const lessonWeeks = require('./fake-entites/lessonWeeks.js');
-const days = require('./fake-entites/days.js');
-const bells = require('./fake-entites/bells.js');
+const groups = require('./models/Group.js');
+const teachers = require('./models/Teacher.js');
+const students = require('./models/Student.js');
+const lessons = require('./models/Lesson.js');
+const disciplines = require('./models/Discipline.js');
+const lessonWeeks = require('./models/LessonWeek.js');
+const days = require('./models/Day.js');
+const bells = require('./models/Bell.js');
 
 faker.locale = 'ru';
 
+const baseBundleDirName = 'bundle';
+
 const writeObjToJsonFile = (filename, jsonObject) => {
-  if (!fs.existsSync('obj')) {
-    fs.mkdirSync('obj/')
+  if (!fs.existsSync(baseBundleDirName)) {
+    fs.mkdirSync(baseBundleDirName)
   }
   const jsonString = JSON.stringify({ [filename]: jsonObject });
-  fs.writeFileSync(`obj/${filename}.json`, jsonString, 'utf-8');
+  fs.writeFileSync(`${baseBundleDirName}/${filename}.json`, jsonString, 'utf-8');
 };
 
 const generateObjects = (overwrite = true) => {
   [
     teachers, groups, students, disciplines, lessonWeeks, days, bells, lessons
   ].forEach((obj) => {
-    if (!fs.existsSync(`obj/${obj.NAME}.json`) || overwrite) {
+    if (!fs.existsSync(`${baseBundleDirName}/${obj.NAME}.json`) || overwrite) {
       writeObjToJsonFile(obj.NAME, obj.generate());
     }
   });
@@ -37,7 +39,7 @@ const compileObjects = () => {
 
   const dbJson = {};
   filesToRead.forEach((obj) => {
-    const data = fs.readFileSync(`obj/${obj.NAME}.json`, 'utf-8');
+    const data = fs.readFileSync(`${baseBundleDirName}/${obj.NAME}.json`, 'utf-8');
     Object.assign(dbJson, JSON.parse(data));
   });
   const dbJsonString = JSON.stringify(dbJson);
