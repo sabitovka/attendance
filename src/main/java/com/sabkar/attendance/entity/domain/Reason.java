@@ -15,19 +15,17 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@Table(name = "marks")
-public class Mark {
+@Table(name = "reason")
+public class Reason {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
     private Integer id;
-    @Temporal(TemporalType.DATE)
-    private Date markDate;
-    private boolean isAbsent;
-    private Integer studentId;
-    private Integer lessonId;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "reason_id")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "reason_type_id", nullable = false)
     @OnDelete(action = OnDeleteAction.NO_ACTION)
-    private Reason reason;
+    private ReasonType reasonType;
+    @Temporal(TemporalType.DATE)
+    private Date startDate;
+    @Temporal(TemporalType.DATE)
+    private Date endDate;
 }

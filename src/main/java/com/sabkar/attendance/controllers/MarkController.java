@@ -1,7 +1,7 @@
 package com.sabkar.attendance.controllers;
 
 import com.sabkar.attendance.entity.transfer.MarkDto;
-import com.sabkar.attendance.services.MarkService;
+import com.sabkar.attendance.service.MarkService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
