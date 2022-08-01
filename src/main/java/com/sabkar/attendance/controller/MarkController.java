@@ -1,4 +1,4 @@
-package com.sabkar.attendance.controllers;
+package com.sabkar.attendance.controller;
 
 import com.sabkar.attendance.entity.transfer.MarkDto;
 import com.sabkar.attendance.service.MarkService;
@@ -10,16 +10,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
-@RequestMapping("/api/marks")
+@RequestMapping("/api")
 @AllArgsConstructor
 public class MarkController {
-
     MarkService markService;
 
-    @PostMapping
-    private ResponseEntity<MarkDto> saveMark(@RequestBody MarkDto markDto) {
-        System.out.println(markDto);
+    @PostMapping("/v1/marks")
+    private ResponseEntity<MarkDto> saveMark(@Valid @RequestBody MarkDto markDto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(markService.saveMark(markDto));
     }
 
