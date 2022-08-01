@@ -17,11 +17,12 @@ public class MarkService {
     private ModelMapper modelMapper;
 
     public MarkDto saveMark(MarkDto markDto) {
-        Mark mark = modelMapper.map(markDto, Mark.class);
-        boolean exists = markRepository.existsByMarkDateAndStudentIdAndLessonId(mark);
+        boolean exists = markRepository.existsByMarkDateAndStudentIdAndLessonId(
+            markDto.getMarkDate(), markDto.getStudentId(), markDto.getLessonId());
         if (exists) {
-            throw new EntityExistsException("Mark already exists");
+            throw new EntityExistsException(String.format("Mark (%s) already exists", markDto));
         }
+        Mark mark = modelMapper.map(markDto, Mark.class);
         Mark saved = markRepository.save(mark);
         return modelMapper.map(saved, MarkDto.class);
     }

@@ -20,7 +20,8 @@ public class MarkController {
 
     @PostMapping("/v1/marks")
     private ResponseEntity<MarkDto> saveMark(@Valid @RequestBody MarkDto markDto) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(markService.saveMark(markDto));
+        MarkDto saved = markService.saveMark(markDto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
 
 }
