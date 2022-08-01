@@ -8,6 +8,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityExistsException;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -27,4 +28,16 @@ public class MarkService {
         return modelMapper.map(saved, MarkDto.class);
     }
 
+    public MarkDto updateMark(Integer id, MarkDto markDto) {
+        if (id == null) {
+            throw new IllegalStateException("Mark ID did not provided");
+        }
+        Optional<Mark> existed = markRepository.findById(id);
+        if (existed.isEmpty()) {
+            return null;
+        }
+        existed.get().setAbsent(markDto.isAbsent());
+        Mark updated = markRepository.save(existed.get());
+        return modelMapper.map(updated, MarkDto.class);
+    }
 }

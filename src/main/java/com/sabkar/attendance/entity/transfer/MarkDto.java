@@ -19,7 +19,6 @@ public class MarkDto implements Serializable {
     @NotNull(message = "The date of the mark can't be null")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date markDate;
-    @JsonFormat(shape = JsonFormat.Shape.BOOLEAN)
     private boolean isAbsent;
     @NotNull(message = "Student id not provided")
     private Integer studentId;
