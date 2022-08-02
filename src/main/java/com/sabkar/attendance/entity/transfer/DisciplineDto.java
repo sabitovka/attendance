@@ -1,17 +1,11 @@
 package com.sabkar.attendance.entity.transfer;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 
-import java.io.Serializable;
-
-@AllArgsConstructor
-@NoArgsConstructor
-@Setter
-@Getter
-public class DisciplineDto implements Serializable {
+@Data
+public class DisciplineDto {
     private Integer id;
-    private String ability;
+    private String fullName;
+    private String shortName;
+    private String abbrevation;
 }

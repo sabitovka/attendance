@@ -1,9 +1,13 @@
 package com.sabkar.attendance.entity.transfer;
 
-import java.util.Date;
+import lombok.Data;
 
+@Data
 public class StudentDto {
-    private Date transferDate;
-    private Date deductionDate;
-    private GroupDto group;
+    private Integer id;
+    private String fullname;
+    private String email;
+    private String phone;
+    private String address;
+    private int groupId;
 }

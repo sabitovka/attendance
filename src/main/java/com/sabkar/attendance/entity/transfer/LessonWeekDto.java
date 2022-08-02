@@ -3,8 +3,7 @@ package com.sabkar.attendance.entity.transfer;
 import lombok.Data;
 
 @Data
-public class GroupDto{
+public class LessonWeekDto {
     private Integer id;
-    private String name;
-    private String speciality;
+    private String ability;
 }
