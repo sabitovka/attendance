@@ -2,8 +2,6 @@ package com.sabkar.attendance.entity.transfer;
 
 import lombok.Data;
 
-import java.util.List;
-
 @Data
 public class StudentDto {
     private Integer id;
@@ -12,5 +10,4 @@ public class StudentDto {
     private String phone;
     private String address;
     private int groupId;
-    private List<MarkDto> marks;
 }
