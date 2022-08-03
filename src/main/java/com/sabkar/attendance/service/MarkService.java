@@ -4,6 +4,7 @@ import com.sabkar.attendance.entity.domain.Mark;
 import com.sabkar.attendance.entity.transfer.MarkDto;
 import com.sabkar.attendance.repository.MarkRepository;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,7 @@ import javax.persistence.EntityExistsException;
 import java.util.Optional;
 
 @Service
+@NoArgsConstructor
 @AllArgsConstructor
 public class MarkService {
 
