@@ -1,4 +1,4 @@
-package com.sabkar.attendance.resolver;
+package com.sabkar.attendance.graphql.resolver;
 
 import com.coxautodev.graphql.tools.GraphQLResolver;
 import com.sabkar.attendance.entity.transfer.GroupDto;
