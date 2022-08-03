@@ -1,0 +1,12 @@
+type Student {
+    id: ID!,
+    fullname: String,
+    email: String,
+    phone: String,
+    address: String,
+    group: Group,
+}
+
+extend type Query {
+    students: [Student]!
+}

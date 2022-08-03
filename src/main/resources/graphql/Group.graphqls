@@ -1,0 +1,9 @@
+type Group {
+    id: ID!,
+    name: String,
+    students: [Student]
+}
+
+extend type Query {
+    groups: [Group]!
+}
