@@ -29,4 +29,8 @@ public class Query implements GraphQLQueryResolver {
         return groupService.fetchAll();
     }
 
+    public GroupDto getGroup(Integer id) {
+        return groupService.fetchGroupById(id);
+    }
+
 }

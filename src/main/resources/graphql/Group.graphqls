@@ -6,4 +6,5 @@ type Group {
 
 extend type Query {
     groups: [Group]!
+    group(id: ID!): Group
 }
