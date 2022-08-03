@@ -1,0 +1,10 @@
+type Lesson {
+    id: ID!,
+    discipline: Discipline,
+    teacher: Teacher,
+    group: Group,
+    roomNumber: Int,
+    day: Day
+    lessonWeek: LessonWeek,
+    bell: Bell
+}

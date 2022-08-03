@@ -1,0 +1,4 @@
+type LessonWeek {
+    id: ID!,
+    ability: String,
+}

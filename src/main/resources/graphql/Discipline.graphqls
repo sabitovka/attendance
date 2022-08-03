@@ -1,0 +1,6 @@
+type Discipline {
+    id: ID!,
+    fullName: String,
+    shortName: String,
+    abbrevation: String,
+}
