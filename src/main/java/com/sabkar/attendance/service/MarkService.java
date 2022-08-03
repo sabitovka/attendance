@@ -4,15 +4,16 @@ import com.sabkar.attendance.entity.domain.Mark;
 import com.sabkar.attendance.entity.transfer.MarkDto;
 import com.sabkar.attendance.repository.MarkRepository;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityExistsException;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
-@NoArgsConstructor
 @AllArgsConstructor
 public class MarkService {
 
@@ -41,5 +42,17 @@ public class MarkService {
         existed.get().setAbsent(markDto.isAbsent());
         Mark updated = markRepository.save(existed.get());
         return modelMapper.map(updated, MarkDto.class);
+    }
+
+    public List<MarkDto> findByStudentId(Integer id) {
+        if (id == null) {
+            throw new IllegalStateException("Student ID did not provided");
+        }
+        System.out.println(markRepository);
+        List<Mark> marks = markRepository.findByStudentId(id);
+        if (marks.isEmpty()) {
+            return Collections.emptyList();
+        }
+        return marks.stream().map(mark -> modelMapper.map(mark, MarkDto.class)).collect(Collectors.toList());
     }
 }

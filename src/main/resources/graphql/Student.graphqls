@@ -5,6 +5,7 @@ type Student {
     phone: String,
     address: String,
     group: Group,
+    marks: [Mark]
 }
 
 extend type Query {

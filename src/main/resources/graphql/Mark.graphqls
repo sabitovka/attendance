@@ -1,0 +1,8 @@
+type Mark {
+    id: ID!,
+    markDate: String,
+    absent: Boolean,
+    student: Student,
+    lessonId: Int,
+    reasonId: Int,
+}
