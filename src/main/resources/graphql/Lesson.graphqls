@@ -8,3 +8,7 @@ type Lesson {
     lessonWeek: LessonWeek,
     bell: Bell
 }
+
+extend type Query {
+    lessons: [Lesson]
+}

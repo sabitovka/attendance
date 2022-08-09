@@ -4,3 +4,7 @@ type Discipline {
     shortName: String,
     abbrevation: String,
 }
+
+extend type Query {
+    disciplines: [Discipline]
+}

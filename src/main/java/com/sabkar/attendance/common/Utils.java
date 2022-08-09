@@ -2,6 +2,7 @@ package com.sabkar.attendance.common;
 
 import lombok.experimental.UtilityClass;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
@@ -16,5 +17,10 @@ public class Utils {
         return dateToConvert.toInstant()
             .atZone(ZoneId.systemDefault())
             .toLocalDate();
+    }
+
+    public String dateToString(Date date, String pattern) {
+        SimpleDateFormat DateFor = new SimpleDateFormat(pattern);
+        return DateFor.format(date);
     }
 }

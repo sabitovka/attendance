@@ -3,3 +3,7 @@ type Bell {
     startTime: String,
     endTime: String,
 }
+
+extend type Query {
+    bells: [Bell]
+}

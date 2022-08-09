@@ -48,7 +48,6 @@ public class MarkService {
         if (id == null) {
             throw new IllegalStateException("Student ID did not provided");
         }
-        System.out.println(markRepository);
         List<Mark> marks = markRepository.findByStudentId(id);
         if (marks.isEmpty()) {
             return Collections.emptyList();

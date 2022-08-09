@@ -4,3 +4,7 @@ type Teacher {
     email: String,
     phone: String
 }
+
+extend type Query {
+    teachers: [Teacher]
+}

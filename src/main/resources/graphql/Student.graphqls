@@ -5,7 +5,7 @@ type Student {
     phone: String,
     address: String,
     group: Group,
-    marks: [Mark]
+    marks(markDate: String = ""): [Mark]
 }
 
 extend type Query {

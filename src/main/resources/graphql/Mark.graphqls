@@ -6,3 +6,7 @@ type Mark {
     lessonId: Int,
     reasonId: Int,
 }
+
+extend type Query {
+    marks(date: String): [Mark]
+}

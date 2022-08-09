@@ -22,7 +22,8 @@ public class StudentResolver implements GraphQLResolver<StudentDto> {
         return groupService.fetchGroupById(student.getGroupId());
     }
 
-    public List<MarkDto> getMarks(StudentDto studentDto) {
+    public List<MarkDto> getMarks(StudentDto studentDto, String markDate) {
+        System.out.println(markDate);
         return markService.findByStudentId(studentDto.getId());
     }
 

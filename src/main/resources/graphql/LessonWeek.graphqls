@@ -2,3 +2,7 @@ type LessonWeek {
     id: ID!,
     ability: String,
 }
+
+extend type Query {
+    lessonWeeks: [LessonWeek]
+}
