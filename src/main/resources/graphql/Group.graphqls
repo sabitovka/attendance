@@ -2,6 +2,7 @@ type Group {
     id: ID!,
     name: String,
     students: [Student]
+    lessons(dayId: ID = -1, weekId: ID = -1): [Lesson]
 }
 
 extend type Query {

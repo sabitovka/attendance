@@ -34,4 +34,5 @@ public class BellService {
         ResponseEntity response = restTemplate.getForEntity(baseUrl + "/bells/" + id, BellDto.class);
         return response.getStatusCode() == HttpStatus.OK ? (BellDto) response.getBody() : null;
     }
+
 }
