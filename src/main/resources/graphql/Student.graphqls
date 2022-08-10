@@ -1,0 +1,13 @@
+type Student {
+    id: ID!,
+    fullname: String,
+    email: String,
+    phone: String,
+    address: String,
+    group: Group,
+    marks(markDate: String = ""): [Mark]
+}
+
+extend type Query {
+    students: [Student]!
+}

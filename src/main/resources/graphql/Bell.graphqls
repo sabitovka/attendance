@@ -1,0 +1,10 @@
+type Bell {
+    id: ID!,
+    startTime: String,
+    endTime: String,
+    lessons(groupId: ID!, dayId: ID!, weekId: ID!): [Lesson]
+}
+
+extend type Query {
+    bells: [Bell]
+}
