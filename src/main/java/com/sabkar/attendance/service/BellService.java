@@ -1,7 +1,8 @@
 package com.sabkar.attendance.service;
 
 import com.sabkar.attendance.entity.transfer.BellDto;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +14,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Service
-@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 public class BellService {
     @Value("${api-server.url}")
     private String baseUrl;
@@ -32,4 +34,5 @@ public class BellService {
         ResponseEntity response = restTemplate.getForEntity(baseUrl + "/bells/" + id, BellDto.class);
         return response.getStatusCode() == HttpStatus.OK ? (BellDto) response.getBody() : null;
     }
+
 }

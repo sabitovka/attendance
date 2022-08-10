@@ -8,7 +8,11 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityExistsException;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -39,5 +43,24 @@ public class MarkService {
         existed.get().setAbsent(markDto.isAbsent());
         Mark updated = markRepository.save(existed.get());
         return modelMapper.map(updated, MarkDto.class);
+    }
+
+    public List<MarkDto> findByStudentId(Integer id) {
+        if (id == null) {
+            throw new IllegalStateException("Student ID did not provided");
+        }
+        List<Mark> marks = markRepository.findByStudentId(id);
+        if (marks.isEmpty()) {
+            return Collections.emptyList();
+        }
+        return marks.stream().map(mark -> modelMapper.map(mark, MarkDto.class)).collect(Collectors.toList());
+    }
+
+    public List<MarkDto> findByStudentIdAndMarkDate(Integer id, Date date) {
+        List<Mark> marks = markRepository.findByStudentIdAndMarkDate(id, date);
+        if (marks.isEmpty()) {
+            return Collections.emptyList();
+        }
+        return marks.stream().map(mark -> modelMapper.map(mark, MarkDto.class)).collect(Collectors.toList());
     }
 }

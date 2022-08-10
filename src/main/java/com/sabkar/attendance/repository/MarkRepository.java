@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 public interface MarkRepository extends JpaRepository<Mark, Integer> {
@@ -12,4 +13,10 @@ public interface MarkRepository extends JpaRepository<Mark, Integer> {
     Optional<Mark> findByMarkDateAndStudentIdAndLessonId(Date markDate, Integer studentId, Integer lessonId);
     @Transactional(readOnly = true)
     boolean existsByMarkDateAndStudentIdAndLessonId(Date markDate, Integer studentId, Integer lessonId);
+
+    @Transactional(readOnly = true)
+    List<Mark> findByStudentId(Integer studentId);
+
+    @Transactional(readOnly = true)
+    List<Mark> findByStudentIdAndMarkDate(Integer id, Date markDate);
 }

@@ -11,5 +11,5 @@ public class LessonDto {
     private Integer roomNumber;
     private Integer dayId;
     private Integer lessonWeekId;
-    private Integer bellI;
+    private Integer bellId;
 }

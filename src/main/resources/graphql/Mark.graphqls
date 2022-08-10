@@ -1,0 +1,12 @@
+type Mark {
+    id: ID!,
+    markDate: String,
+    absent: Boolean,
+    student: Student,
+    lessonId: Int,
+    reasonId: Int,
+}
+
+extend type Query {
+    marks(date: String): [Mark]
+}

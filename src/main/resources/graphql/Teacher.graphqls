@@ -1,0 +1,10 @@
+type Teacher {
+    id: ID!,
+    fullname: String,
+    email: String,
+    phone: String
+}
+
+extend type Query {
+    teachers: [Teacher]
+}

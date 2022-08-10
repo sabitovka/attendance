@@ -1,0 +1,8 @@
+type Day {
+    id: ID!,
+    name: String
+}
+
+extend type Query {
+    days: [Day]
+}

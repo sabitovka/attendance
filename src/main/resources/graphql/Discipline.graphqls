@@ -1,0 +1,10 @@
+type Discipline {
+    id: ID!,
+    fullName: String,
+    shortName: String,
+    abbrevation: String,
+}
+
+extend type Query {
+    disciplines: [Discipline]
+}

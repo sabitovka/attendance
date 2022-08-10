@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
-import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,6 +13,6 @@ import java.util.Date;
 @Setter
 public class BellDto implements Serializable {
     private Integer id;
-    private Date startTime;
-    private Date endTime;
+    private String startTime;
+    private String endTime;
 }
