@@ -12,3 +12,6 @@ spring:
       date-time: iso
 api-server:
   url: http://localhost:3001
+graphql:
+  servlet:
+    corsEnabled: true
