@@ -1,33 +1,18 @@
-import React, { useState, useCallback } from "react"
+import React, { useState, useMemo } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCalendar } from "@fortawesome/free-solid-svg-icons"
 import DatePicker, { registerLocale } from "react-datepicker"
-import { useLazyQuery } from '@apollo/client';
 
 import { isWeekday } from "../../common/utils"
 import AttendanceTable from "../../components/AttendanceTable"
 import Loader from "../../components/Loader"
-import { GET_ATTENDANCE_OF_GROUP } from "../../Queries"
 
 import ru from "date-fns/locale/ru"
-import { useEffect } from "react";
 
 registerLocale('ru', ru);
 
 export default function AttendanceJournal() {
   const [selectedDate, setSelectedDate] = useState(new Date())
-  const [getAttendanceData, { loading, error, data }] = useLazyQuery(GET_ATTENDANCE_OF_GROUP);
-  
-  const fetchAttendanceData = useCallback(() => {
-    getAttendanceData({ variables: {
-      groupId: 1, dayId: 1, weekId: 1, markDate: "2022-08-18"
-    } });
-    console.log(selectedDate, error, loading, data)
-  }, [getAttendanceData, selectedDate, error, loading, data])
-  
-  useEffect(() => {
-    fetchAttendanceData()
-  }, [fetchAttendanceData, selectedDate])
 
   return (
     <main className="main">
@@ -46,7 +31,7 @@ export default function AttendanceJournal() {
                 }
             </div>
             <div className="d-flex justify-content-between">
-              { (loading || !data) ? <Loader /> : <AttendanceTable bells={data.bells} students={data.group.students}/> }
+              <AttendanceTable date={selectedDate} />
               <div style={{ marginLeft: '2rem' }}>
                 <DatePicker
                   inline

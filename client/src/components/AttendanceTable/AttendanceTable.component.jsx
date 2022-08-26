@@ -1,9 +1,67 @@
-import React from 'react'
-import { useState } from 'react'
-import { MarkCheckbox } from './MarkCheckbox/MarkCheckbox.component'
+import React, { useMemo } from 'react'
 
-export const AttendanceTable = ({ bells, students }) => {
+import Table from './Table'
+/* import { useLazyQuery } from '@apollo/client';
+
+import { MarkCheckbox } from './MarkCheckbox/MarkCheckbox.component'
+import { GET_ATTENDANCE_OF_GROUP } from '../../Queries'; */
+
+export function AttendanceTable({ date }) {
+  //const [executeQuery, { loading, error, data }] = useLazyQuery(GET_ATTENDANCE_OF_GROUP);
+ /*  const fetchAttendanceData = useCallback(() => {
+    getAttendanceData({ variables: {
+      groupId: 1, dayId: 1, weekId: 1, markDate: "2022-08-18"
+    } });
+    console.log(selectedDate, error, loading, data)
+  }, [getAttendanceData, selectedDate, error, loading, data])
+  
+  useEffect(() => {
+    fetchAttendanceData()
+  }, [fetchAttendanceData, selectedDate]) */
+
+  const columns = useMemo(() => [
+    {
+      Header: 'ФИО Студента',
+      accessor: 'fullname'
+    },
+    {
+      Header: 'Занятия',
+      columns: [
+        {
+          Header: (props) => { console.log(props); return <>Оло</> },
+          accessor: 'shortName1'
+        },
+        {
+          Header: 'Урок 2',
+          accessor: 'shortName2'
+        }
+      ]
+    }
+  ]);
+
+  const data = useMemo(() => [
+    {
+      fullname: "test",
+      shortName1: 'test 1',
+      shortName2: 'test2',
+    },
+    {
+      fullname: "test",
+      shortName1: 'test 1',
+      shortName2: 'test 2',
+    },
+    {
+      fullname: "test",
+      shortName1: 'test 1',
+      shortName2: 'test 2',
+    }
+  ])
+
   return (
+    <Table columns={columns} data={data} />
+  )
+
+  /* return (
     <table className="table table-bordered table-attendance">
       <thead>
         <tr>
@@ -47,5 +105,5 @@ export const AttendanceTable = ({ bells, students }) => {
 
       </tbody>
     </table>
-  )
+  ) */
 }
