@@ -2,7 +2,7 @@ type Bell {
     id: ID!,
     startTime: String,
     endTime: String,
-    lessons(groupId: ID!, dayId: ID!, weekId: ID!): [Lesson]
+    lessons(groupId: ID!, date: String!): [Lesson]
 }
 
 extend type Query {
