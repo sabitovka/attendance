@@ -9,7 +9,7 @@ export const GET_ATTENDANCE_OF_GROUP = gql`
         lessons(groupId: $groupId, dayId: $dayId, weekId: $weekId) {
           id
           discipline {
-            fullName
+            shortName
           }
           teacher {
             fullname
