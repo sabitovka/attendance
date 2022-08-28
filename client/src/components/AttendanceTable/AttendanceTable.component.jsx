@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useCallback, useEffect } from 'react'
 
 import Table from './Table'
 import ColumnHeader from "./ColumnHeader"
@@ -7,20 +7,27 @@ import ColumnHeader from "./ColumnHeader"
 import { MarkCheckbox } from './MarkCheckbox/MarkCheckbox.component'
 import { GET_ATTENDANCE_OF_GROUP } from '../../Queries'; */
 import { markApiData } from '../../fake-data'
+import { useState } from 'react'
 
 export function AttendanceTable({ date }) {
   //const [executeQuery, { loading, error, data }] = useLazyQuery(GET_ATTENDANCE_OF_GROUP);
- /*  const fetchAttendanceData = useCallback(() => {
-    getAttendanceData({ variables: {
+  const [data, setData] = useState([])
+  const [loading, setLoading] = useState(false);
+  const fetchAttendanceData = useCallback(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setData(markApiData);
+    }, 1000)
+    setLoading(false);
+   /*  getAttendanceData({ variables: {
       groupId: 1, dayId: 1, weekId: 1, markDate: "2022-08-18"
     } });
-    console.log(selectedDate, error, loading, data)
-  }, [getAttendanceData, selectedDate, error, loading, data])
+    console.log(selectedDate, error, loading, data) */
+  })
   
   useEffect(() => {
     fetchAttendanceData()
-  }, [fetchAttendanceData, selectedDate]) */
-  const apiData = useMemo(() => markApiData);
+  }, [fetchAttendanceData])
 
   const columns = useMemo(() => [
     {
@@ -30,7 +37,7 @@ export function AttendanceTable({ date }) {
     },
     {
       Header: 'Занятия',
-      columns: apiData.data.bells.map((bell) => ({
+      columns: data.data.bells.map((bell) => ({
         Header: () => <ColumnHeader bell={bell}/>,
         accessor: `lesson${bell.id}`,
         maxWidth: 150,
@@ -40,7 +47,7 @@ export function AttendanceTable({ date }) {
     }
   ]);
 
-  const data = useMemo(() => [
+  /* const data = useMemo(() => [
     {
       fullname: "test",
       shortName1: 'test 1',
@@ -56,7 +63,7 @@ export function AttendanceTable({ date }) {
       shortName1: 'test 1',
       shortName2: 'test 2',
     }
-  ])
+  ]) */
 
   return (
     <Table columns={columns} data={data} />
