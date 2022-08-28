@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'
 
 import Table from './Table'
+import ColumnHeader from "./ColumnHeader"
 /* import { useLazyQuery } from '@apollo/client';
 
 import { MarkCheckbox } from './MarkCheckbox/MarkCheckbox.component'
@@ -22,18 +23,39 @@ export function AttendanceTable({ date }) {
   const columns = useMemo(() => [
     {
       Header: 'ФИО Студента',
-      accessor: 'fullname'
+      accessor: 'fullname',
+      minWidth: 200,
     },
     {
       Header: 'Занятия',
       columns: [
         {
-          Header: (props) => { console.log(props); return <>Оло</> },
-          accessor: 'shortName1'
+          Header: () => <ColumnHeader />,
+          accessor: 'shortName1',
+          maxWidth: 150,
+          minWidth: 50,
+          width: 50,
         },
         {
-          Header: 'Урок 2',
-          accessor: 'shortName2'
+          Header: () => <ColumnHeader />,
+          accessor: 'shortName2',
+          maxWidth: 150,
+          minWidth: 50,
+          width: 50,
+        },
+        {
+          Header: () => <ColumnHeader />,
+          accessor: 'shortName3',
+          maxWidth: 150,
+          minWidth: 50,
+          width: 50,
+        },
+        {
+          Header: () => <ColumnHeader />,
+          accessor: 'shortName4',
+          maxWidth: 150,
+          minWidth: 50,
+          width: 50,
         }
       ]
     }

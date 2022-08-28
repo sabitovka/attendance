@@ -1,7 +1,7 @@
 import React from "react";
 import { useTable } from "react-table";
 
-export default function Table({ columns, data }) {
+export default function Table({ columns, data, defaultColumn }) {
   const {
     getTableProps,
     getTableBodyProps,
@@ -11,6 +11,7 @@ export default function Table({ columns, data }) {
   } = useTable({
     columns,
     data,
+    defaultColumn
   })
 
   return (
@@ -19,7 +20,11 @@ export default function Table({ columns, data }) {
         {headerGroups.map((headerGroup) => (
            <tr {...headerGroup.getHeaderGroupProps()}>
            {headerGroup.headers.map(column => (
-             <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+             <th {...column.getHeaderProps()} style={{
+              minWidth: column.minWidth,
+              width: column.width,
+              maxWidth: column.maxWidth
+            }}>{column.render('Header')}</th>
            ))}
          </tr>
         ))}
