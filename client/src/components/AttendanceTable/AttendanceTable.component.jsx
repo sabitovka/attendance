@@ -6,6 +6,7 @@ import ColumnHeader from "./ColumnHeader"
 
 import { MarkCheckbox } from './MarkCheckbox/MarkCheckbox.component'
 import { GET_ATTENDANCE_OF_GROUP } from '../../Queries'; */
+import { markApiData } from '../../fake-data'
 
 export function AttendanceTable({ date }) {
   //const [executeQuery, { loading, error, data }] = useLazyQuery(GET_ATTENDANCE_OF_GROUP);
@@ -19,6 +20,7 @@ export function AttendanceTable({ date }) {
   useEffect(() => {
     fetchAttendanceData()
   }, [fetchAttendanceData, selectedDate]) */
+  const apiData = useMemo(() => markApiData);
 
   const columns = useMemo(() => [
     {
@@ -28,36 +30,13 @@ export function AttendanceTable({ date }) {
     },
     {
       Header: 'Занятия',
-      columns: [
-        {
-          Header: () => <ColumnHeader />,
-          accessor: 'shortName1',
-          maxWidth: 150,
-          minWidth: 50,
-          width: 50,
-        },
-        {
-          Header: () => <ColumnHeader />,
-          accessor: 'shortName2',
-          maxWidth: 150,
-          minWidth: 50,
-          width: 50,
-        },
-        {
-          Header: () => <ColumnHeader />,
-          accessor: 'shortName3',
-          maxWidth: 150,
-          minWidth: 50,
-          width: 50,
-        },
-        {
-          Header: () => <ColumnHeader />,
-          accessor: 'shortName4',
-          maxWidth: 150,
-          minWidth: 50,
-          width: 50,
-        }
-      ]
+      columns: apiData.data.bells.map((bell) => ({
+        Header: () => <ColumnHeader bell={bell}/>,
+        accessor: `lesson${bell.id}`,
+        maxWidth: 150,
+        minWidth: 50,
+        width: 50,
+      }))
     }
   ]);
 
