@@ -1,7 +1,8 @@
 import React from "react";
 
 export default function ColumnHeader({ bell }) {
-    const timeStr = `${bell.startTime}-${bell.endTime}`;
+    const trim = (timeStr) => timeStr.slice(0, timeStr.lastIndexOf(':'));
+    const timeStr = `${trim(bell.startTime)}-${trim(bell.endTime)}`;
 
     return (
         <div className="d-flex flex-column text-center overflow-hidden" style={{ maxWidth: 200 }}>

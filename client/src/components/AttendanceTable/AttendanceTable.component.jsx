@@ -1,34 +1,10 @@
-import React, { useMemo, useCallback, useEffect } from 'react'
+import React, { useMemo } from 'react'
 
 import Table from './Table'
 import ColumnHeader from "./ColumnHeader"
-/* import { useLazyQuery } from '@apollo/client';
+import MarkCheckbox from "./MarkCheckbox"
 
-import { MarkCheckbox } from './MarkCheckbox/MarkCheckbox.component'
-import { GET_ATTENDANCE_OF_GROUP } from '../../Queries'; */
-import { markApiData } from '../../fake-data'
-import { useState } from 'react'
-
-export function AttendanceTable({ date }) {
-  //const [executeQuery, { loading, error, data }] = useLazyQuery(GET_ATTENDANCE_OF_GROUP);
-  const [data, setData] = useState([])
-  const [loading, setLoading] = useState(false);
-  const fetchAttendanceData = useCallback(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setData(markApiData);
-    }, 1000)
-    setLoading(false);
-   /*  getAttendanceData({ variables: {
-      groupId: 1, dayId: 1, weekId: 1, markDate: "2022-08-18"
-    } });
-    console.log(selectedDate, error, loading, data) */
-  })
-  
-  useEffect(() => {
-    fetchAttendanceData()
-  }, [fetchAttendanceData])
-
+export function AttendanceTable({ data, date }) {
   const columns = useMemo(() => [
     {
       Header: 'ФИО Студента',
@@ -37,15 +13,42 @@ export function AttendanceTable({ date }) {
     },
     {
       Header: 'Занятия',
-      columns: data.data.bells.map((bell) => ({
+      columns: data?.bells?.map((bell) => ({
         Header: () => <ColumnHeader bell={bell}/>,
+        Cell: ({ cell: { value }}) => <MarkCheckbox mark={value} />,
         accessor: `lesson${bell.id}`,
         maxWidth: 150,
         minWidth: 50,
         width: 50,
       }))
     }
-  ]);
+  ], [data.bells]);
+
+  const students = useMemo(() => data.students.map((student) => {
+    const marks = {};
+    data.bells.forEach((bell) => {
+      const lessonExists = bell.lessons.length > 0;
+      const mark = student.marks.find((mark) => lessonExists && bell.lessons[0].id === mark.lessonId);
+      if (mark && lessonExists) {
+        marks[`lesson${bell.id}`] = mark;
+      } else if (!mark && lessonExists) {
+        marks[`lesson${bell.id}`] = { 
+          studentId: student.id,
+          lessonId: bell.lessons[0].id,
+          markDate: date,
+          isToCreate: true,
+        };
+      } else {
+        marks[`lesson${bell.id}`] = null;
+      }
+    })
+    return {
+      ...marks,
+      fullname: student.fullname
+    }
+  }), [data]);
+
+  console.log(students);
 
   /* const data = useMemo(() => [
     {
@@ -66,7 +69,7 @@ export function AttendanceTable({ date }) {
   ]) */
 
   return (
-    <Table columns={columns} data={data} />
+    <Table columns={columns} data={students} />
   )
 
   /* return (
