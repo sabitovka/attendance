@@ -5,4 +5,5 @@ type LessonWeek {
 
 extend type Query {
     lessonWeeks: [LessonWeek]
+    lessonWeekByDate(date: String): LessonWeek
 }

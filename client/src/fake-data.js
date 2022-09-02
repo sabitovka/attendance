@@ -92,3 +92,105 @@ export const absence20students = [
     group: {_id: 3, name: "ЭМО-1/4"}, 
     percent: 11.6  },
 ];
+
+export const markApiData = {
+  "data": {
+    "bells": [
+      {
+        "id": "1",
+        "startTime": "08:15:00",
+        "endTime": "09:35:00",
+        "lessons": [
+          {
+            "id": "18",
+            "discipline": {
+              "shortName": "Осн. прогр."
+            },
+            "teacher": {
+              "fullname": "Анжела Мишина"
+            }
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "startTime": "09:45:00",
+        "endTime": "11:05:00",
+        "lessons": [
+          {
+            "id": "19",
+            "discipline": {
+              "shortName": "Элем. в. мат."
+            },
+            "teacher": {
+              "fullname": "Надежда Блинова"
+            }
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "startTime": "11:25:00",
+        "endTime": "12:45:00",
+        "lessons": [
+          {
+            "id": "20",
+            "discipline": {
+              "shortName": "Операц. сист."
+            },
+            "teacher": {
+              "fullname": "Викторин Киселев"
+            }
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "startTime": "12:50:00",
+        "endTime": "14:10:00",
+        "lessons": [
+          {
+            "id": "21",
+            "discipline": {
+              "shortName": "Физ-ра"
+            },
+            "teacher": {
+              "fullname": "Серафим Белов"
+            }
+          }
+        ]
+      }
+    ],
+    "group": {
+      "id": "1",
+      "name": "ПКС-15",
+      "students": [
+        {
+          "id": "1",
+          "fullname": "Раиса Сорокина",
+          "marks": []
+        },
+        {
+          "id": "25",
+          "fullname": "Артем Ковалев",
+          "marks": []
+        },
+        {
+          "id": "42",
+          "fullname": "Агата Ермакова",
+          "marks": []
+        },
+        {
+          "id": "63",
+          "fullname": "Елена Ефимова",
+          "marks": []
+        },
+        {
+          "id": "110",
+          "fullname": "Василий Михайлов",
+          "marks": []
+        }
+      ]
+    }
+  }
+}

@@ -1,12 +1,14 @@
 package com.sabkar.attendance.graphql.resolver;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+import com.sabkar.attendance.common.Utils;
 import com.sabkar.attendance.entity.transfer.*;
 import com.sabkar.attendance.service.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -58,12 +60,19 @@ public class Query implements GraphQLQueryResolver {
         return lessonWeekService.fetchAll();
     }
 
+    public LessonWeekDto getLessonWeekByDate(String date) {
+        Date parsedDate = Utils.stringToDate(date);
+        if (parsedDate == null) {
+            throw new IllegalArgumentException("String parameter `date` couldn't be parsed to Date. Expected `yyyy-MM-dd`, given: " + date);
+        }
+        return lessonWeekService.fetchByDate(Utils.convertToLocalDateViaInstant(parsedDate));
+    }
+
     public List<TeacherDto> getTeachers() {
         return teacherService.fetchAll();
     }
 
     public List<MarkDto> getMarks(String markDate) {
-        System.out.println(markDate);
         return Collections.emptyList();
     }
 

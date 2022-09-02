@@ -8,4 +8,5 @@ import org.springframework.stereotype.Component;
 @Component
 @AllArgsConstructor
 public class LessonWeekResolver implements GraphQLResolver<LessonWeekDto> {
+
 }

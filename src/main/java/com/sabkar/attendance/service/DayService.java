@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -32,6 +33,13 @@ public class DayService {
     public DayDto fetchById(Integer id) {
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity response = restTemplate.getForEntity(baseUrl + "/days/" + id, DayDto.class);
+        return response.getStatusCode() == HttpStatus.OK ? (DayDto) response.getBody() : null;
+    }
+
+    public DayDto fetchByDate(LocalDate date) {
+        int num = date.getDayOfWeek().getValue();
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity response = restTemplate.getForEntity(baseUrl + "/days/" + num, DayDto.class);
         return response.getStatusCode() == HttpStatus.OK ? (DayDto) response.getBody() : null;
     }
 }
