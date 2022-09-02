@@ -4,7 +4,7 @@ import { faCalendar } from "@fortawesome/free-solid-svg-icons"
 import DatePicker, { registerLocale } from "react-datepicker"
 import { useLazyQuery } from '@apollo/client';
 
-import AttendanceTable from "../../components/AttendanceTable"
+import AttendanceTable from "./components/AttendanceTable"
 import Loader from "../../components/Loader"
 import { isWeekday } from "../../common/utils"
 import { GET_ATTENDANCE_OF_GROUP } from '../../Queries';

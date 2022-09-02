@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 
-import { useHttp } from "../../../hooks/http.hook"
-import Loader from '../../Loader'
+import { useHttp } from "../../../../../hooks/http.hook"
+import Loader from '../../../../../components/Loader'
 import "./MarkCheckbox.style.css"
 
 export const MarkCheckbox = ({ mark }) => {
