@@ -1,11 +1,11 @@
-import React, { useState, useCallback, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCalendar } from "@fortawesome/free-solid-svg-icons"
 import DatePicker, { registerLocale } from "react-datepicker"
 import { useLazyQuery } from '@apollo/client';
 
-import AttendanceTable from "./components/AttendanceTable"
-import Loader from "../../components/Loader"
+import AttendanceTable from "./components/attendance-table"
+import Loader from "../../components/loader"
 import { isWeekday } from "../../common/utils"
 import { GET_ATTENDANCE_OF_GROUP } from '../../Queries';
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes, Redirect } from "react-router-dom";
-import AttendanceJournal from "./pages/AttendanceJournal";
+import AttendanceJournal from "./pages/attendance-journal";
 import StatementPage from "./pages/StatementPage";
 import Absence20Page from "./pages/Absence20Page";
 import HomePage from "./pages/HomePage";

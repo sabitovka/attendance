@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react'
 
-import Table from './Table'
-import ColumnHeader from "./ColumnHeader"
-import MarkCheckbox from "./MarkCheckbox"
+import Table from './table'
+import ColumnHeader from "./column-header"
+import MarkCheckbox from "./mark-checkbox"
 
 export function AttendanceTable({ data, date }) {
   const columns = useMemo(() => [

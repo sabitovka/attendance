@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 
 import { useHttp } from "../../../../../hooks/http.hook"
-import Loader from '../../../../../components/Loader'
-import "./MarkCheckbox.style.css"
+import Loader from '../../../../../components/loader'
+import "./mark-checkbox.style.css"
 
 export const MarkCheckbox = ({ mark }) => {
   const [markState, setMarkState] = useState(mark);
