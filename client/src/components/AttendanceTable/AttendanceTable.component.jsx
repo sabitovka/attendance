@@ -1,9 +1,78 @@
-import React from 'react'
-import { useState } from 'react'
-import { MarkCheckbox } from './MarkCheckbox/MarkCheckbox.component'
+import React, { useMemo } from 'react'
 
-export const AttendanceTable = ({ bells, students }) => {
+import Table from './Table'
+import ColumnHeader from "./ColumnHeader"
+import MarkCheckbox from "./MarkCheckbox"
+
+export function AttendanceTable({ data, date }) {
+  const columns = useMemo(() => [
+    {
+      Header: 'ФИО Студента',
+      accessor: 'fullname',
+      minWidth: 200,
+    },
+    {
+      Header: 'Занятия',
+      columns: data?.bells?.map((bell) => ({
+        Header: () => <ColumnHeader bell={bell}/>,
+        Cell: ({ cell: { value }}) => <MarkCheckbox mark={value} />,
+        accessor: `lesson${bell.id}`,
+        maxWidth: 150,
+        minWidth: 50,
+        width: 50,
+      }))
+    }
+  ], [data.bells]);
+
+  const students = useMemo(() => data.students.map((student) => {
+    const marks = {};
+    data.bells.forEach((bell) => {
+      const lessonExists = bell.lessons.length > 0;
+      const mark = student.marks.find((mark) => lessonExists && +bell.lessons[0].id === mark.lessonId);
+      if (mark && lessonExists) {
+        marks[`lesson${bell.id}`] = mark;
+      } else if (!mark && lessonExists) {
+        marks[`lesson${bell.id}`] = { 
+          studentId: student.id,
+          lessonId: bell.lessons[0].id,
+          markDate: date,
+          isToCreate: true,
+        };
+      } else {
+        marks[`lesson${bell.id}`] = null;
+      }
+    })
+    return {
+      ...marks,
+      fullname: student.fullname
+    }
+  }), [data]);
+
+  console.log(students);
+
+  /* const data = useMemo(() => [
+    {
+      fullname: "test",
+      shortName1: 'test 1',
+      shortName2: 'test2',
+    },
+    {
+      fullname: "test",
+      shortName1: 'test 1',
+      shortName2: 'test 2',
+    },
+    {
+      fullname: "test",
+      shortName1: 'test 1',
+      shortName2: 'test 2',
+    }
+  ]) */
+
   return (
+    <Table columns={columns} data={students} />
+  )
+
+  /* return (
     <table className="table table-bordered table-attendance">
       <thead>
         <tr>
@@ -47,5 +116,5 @@ export const AttendanceTable = ({ bells, students }) => {
 
       </tbody>
     </table>
-  )
+  ) */
 }
