@@ -8,18 +8,17 @@ export const MarkCheckbox = ({ mark }) => {
   const [markState, setMarkState] = useState(mark);
   const { loading, request } = useHttp();
 
-  const toggleMark = () => {
-    console.log(markState)
+  const toggleMark = React.useCallback(async () => {
     if (!markState) {
       return
     }
-    setMarkState({ ...markState, absent: !markState.absent });
-  }
+    const data = await request("http://localhost:8080/api/v1/marks/" + markState.id, "PUT", { ...markState, absent: !markState.absent });
+    setMarkState(data);
+  })
   
   const createMark = React.useCallback(async () => {
-    const data = await request("http://localhost:8080/api/v1/marks", "POST", markState);
-    console.log(data);
-    setMarkState({ ...markState, absent: true, isToCreate: false })
+    const data = await request("http://localhost:8080/api/v1/marks", "POST", { ...markState, absent: true });
+    setMarkState(data);
   })
 
   if (loading) {

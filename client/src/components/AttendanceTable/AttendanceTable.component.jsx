@@ -28,7 +28,7 @@ export function AttendanceTable({ data, date }) {
     const marks = {};
     data.bells.forEach((bell) => {
       const lessonExists = bell.lessons.length > 0;
-      const mark = student.marks.find((mark) => lessonExists && bell.lessons[0].id === mark.lessonId);
+      const mark = student.marks.find((mark) => lessonExists && +bell.lessons[0].id === mark.lessonId);
       if (mark && lessonExists) {
         marks[`lesson${bell.id}`] = mark;
       } else if (!mark && lessonExists) {
